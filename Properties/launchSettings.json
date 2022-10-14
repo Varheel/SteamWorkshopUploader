@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IASWorkshop": {
+      "commandName": "Project",
+      "commandLineArgs": "publish"
+    }
+  }
+}
