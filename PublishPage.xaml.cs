@@ -28,10 +28,19 @@ namespace IASWorkshop
         public PublishPage(Item? itemToEdit = null)
         {
             InitializeComponent();
+
             _window = (NavigationWindow)System.Windows.Application.Current.MainWindow;
-            _editor = itemToEdit.HasValue
-                ? new Editor(itemToEdit.Value.Id)
-                : Editor.NewCommunityFile;
+
+            if (itemToEdit.HasValue)
+            {
+                _editor = new Editor(itemToEdit.Value.Id);
+                TitleText.Text = itemToEdit.Value.Title;
+                DescriptionText.Text = itemToEdit.Value.Description;
+            }
+            else
+            {
+                _editor = Editor.NewCommunityFile;
+            }
 
             TitleText.TextChanged += (s, e) => UpdateUi();
             DescriptionText.TextChanged += (s, e) => UpdateUi();

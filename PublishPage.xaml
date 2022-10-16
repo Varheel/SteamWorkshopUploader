@@ -17,7 +17,7 @@
                 <Label>Title</Label>
                 <TextBox x:Name="TitleText" Height="20"/>
                 <Label>Description</Label>
-                <TextBox x:Name="DescriptionText" Height="240"/>
+                <TextBox x:Name="DescriptionText" Height="240" AcceptsReturn="True"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 20 0">
                 <Label>Content (the folder that contains your WAD file)</Label>
