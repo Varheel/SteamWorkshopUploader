@@ -131,6 +131,7 @@ namespace IASWorkshop
         {
             var result = await _editor
                 .ForAppId(App.AppId)
+                .WithPublicVisibility()
                 .WithTitle(TitleText.Text)
                 .WithDescription(DescriptionText.Text)
                 .WithPreviewFile(PreviewImagePath.Text)
