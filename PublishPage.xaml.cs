@@ -20,7 +20,6 @@ namespace IASWorkshop
     {
         private const uint MaxImageSize = 1024 * 1024;
         private static readonly string[] ImageTypes = new[] { ".jpg", ".png", ".gif" };
-        private static readonly string[] ModFileTypes = new[] { ".iwad", ".wad" };
 
         private readonly NavigationWindow _window;
         private Editor _editor;
@@ -73,7 +72,7 @@ namespace IASWorkshop
 
                 if (Directory.Exists(path))
                 {
-                    if (new DirectoryInfo(path).EnumerateFiles().Any(x => ModFileTypes.Contains(x.Extension.ToLower())))
+                    if (new DirectoryInfo(path).EnumerateFiles().Any(x => x.Extension.ToLower() == ".wad"))
                     {
                         ContentFolder.Text = path;
                     }
