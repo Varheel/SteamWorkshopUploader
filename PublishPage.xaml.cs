@@ -73,7 +73,7 @@ namespace IASWorkshop
 
                 if (Directory.Exists(path))
                 {
-                    if (new DirectoryInfo(path).GetFiles().Any(x => x.Length > 0 && ContentTypes.Contains(x.Extension.ToLower())))
+                    if (new DirectoryInfo(path).EnumerateFiles().Any(x => x.Length > 0 && ContentTypes.Contains(x.Extension.ToLower())))
                     {
                         ContentFolder.Text = path;
                     }
