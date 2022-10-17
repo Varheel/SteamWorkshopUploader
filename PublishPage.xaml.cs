@@ -20,7 +20,8 @@ namespace IASWorkshop
     {
         private const uint MaxImageSize = 1024 * 1024;
         private static readonly string[] ImageTypes = new[] { ".jpg", ".png", ".gif" };
-        private static readonly string[] ContentTypes = new[] { ".wad", ".pk3", ".pk7", ".pkz", ".zip", ".7z" };
+        private static readonly string[] ContentTypes = new[] { ".wad", ".7z", ".zip", ".pk3", ".pk7", ".pkz" };
+        private const string ContentTypesText = "WAD, .7z, .zip, .pk3, pk7, or .pkz";
 
         private readonly NavigationWindow _window;
         private Editor _editor;
@@ -73,13 +74,35 @@ namespace IASWorkshop
 
                 if (Directory.Exists(path))
                 {
-                    if (new DirectoryInfo(path).EnumerateFiles().Any(x => x.Length > 0 && ContentTypes.Contains(x.Extension.ToLower())))
+                    bool ok = false;
+                    string message = $"No mod files were found. The folder must contain a {ContentTypesText} file.";
+
+                    foreach (var file in new DirectoryInfo(path).EnumerateFiles())
+                    {
+                        // All files must be one of the accepted types
+                        if (ContentTypes.Contains(file.Extension.ToLower()))
+                        {
+                            // And make sure there's at least one that isn't blank
+                            if (file.Length > 0)
+                            {
+                                ok = true;
+                            }
+                        }
+                        else
+                        {
+                            message = $"The folder must contain only {ContentTypesText} files.";
+                            ok = false;
+                            break;
+                        }
+                    }
+
+                    if (ok)
                     {
                         ContentFolder.Text = path;
                     }
                     else
                     {
-                        MessageBox.Show(_window, "No mod files were found. The folder must contain a WAD, .7z, .zip, .pk3, pk7, or .pkz file.");
+                        MessageBox.Show(_window, message);
                     }
                 }
                 else
