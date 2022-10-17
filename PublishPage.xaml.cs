@@ -20,6 +20,7 @@ namespace IASWorkshop
     {
         private const uint MaxImageSize = 1024 * 1024;
         private static readonly string[] ImageTypes = new[] { ".jpg", ".png", ".gif" };
+        private static readonly string[] ContentTypes = new[] { ".wad", ".pk3", ".pk7", ".pkz", ".zip", ".7z" };
 
         private readonly NavigationWindow _window;
         private Editor _editor;
@@ -72,13 +73,13 @@ namespace IASWorkshop
 
                 if (Directory.Exists(path))
                 {
-                    if (new DirectoryInfo(path).EnumerateFiles().Any(x => x.Extension.ToLower() == ".wad"))
+                    if (new DirectoryInfo(path).GetFiles().Any(x => x.Length > 0 && ContentTypes.Contains(x.Extension.ToLower())))
                     {
                         ContentFolder.Text = path;
                     }
                     else
                     {
-                        MessageBox.Show(_window, "The folder must contain a WAD file.");
+                        MessageBox.Show(_window, "No mod files were found. The folder must contain a WAD, .7z, .zip, .pk3, pk7, or .pkz file.");
                     }
                 }
                 else
