@@ -1,15 +1,13 @@
-﻿using Steamworks;
+﻿using Microsoft.Win32;
+using Steamworks;
 using Steamworks.Ugc;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using MessageBox = System.Windows.MessageBox;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace IASWorkshop
 {
@@ -24,7 +22,7 @@ namespace IASWorkshop
         private const string ContentTypesText = "WAD, .7z, .zip, .pk3, pk7, or .pkz";
 
         private readonly NavigationWindow _window;
-        private Editor _editor;
+        private readonly Editor _editor;
 
         public PublishPage(Item? itemToEdit = null)
         {
@@ -66,9 +64,9 @@ namespace IASWorkshop
         /// </summary>
         private void ChooseContent_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new FolderBrowserDialog();
+            var dialog = new System.Windows.Forms.FolderBrowserDialog();
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = dialog.SelectedPath;
 

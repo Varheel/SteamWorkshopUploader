@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IASWorkshop"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage">
+      Title="Main Page">
     <Page.Resources>
         <Style x:Key="ListStyle" TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
             <Style.Triggers>

@@ -65,6 +65,7 @@ namespace IASWorkshop
 
             if (result == MessageBoxResult.Yes)
             {
+                // TODO: Should check Task.Result and show a success/failure message, but this works just fine
                 await SteamUGC.DeleteFileAsync(item.Id);
                 await RefreshList();
             }
