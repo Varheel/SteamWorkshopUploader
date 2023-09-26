@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IASWorkshop"
         mc:Ignorable="d"
-        Title="I Am Sakuya - Workshop Submission" Height="450" Width="800" ResizeMode="CanMinimize"
+        Title="Steam Workshop Uploader" Height="450" Width="800" ResizeMode="CanMinimize"
         Source="MainPage.xaml" ShowsNavigationUI="False">
     <Window.Resources>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">

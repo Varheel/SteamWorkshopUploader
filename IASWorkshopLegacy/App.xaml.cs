@@ -1,5 +1,6 @@
 ﻿using Steamworks;
 using System;
+using System.IO;
 using System.Threading;
 using System.Windows;
 
@@ -11,9 +12,13 @@ namespace IASWorkshopLegacy
     public partial class App : Application
     {
         /// <summary>
-        /// The AppId for I Am Sakuya
+        /// The number that identifies the game on the Steam Workshop.
         /// </summary>
-        public static readonly AppId_t AppId = new AppId_t(1960590);
+        public static AppId_t AppId { get; private set; }
+
+        private const string AppIdFile = "AppID.txt";
+        private const string FileError = "Make sure AppID.txt contains a valid number.";
+        private const string ConnectionError = "Make sure Steam is running and your App ID is correct.";
 
         private static bool _running = true;
 
@@ -25,28 +30,61 @@ namespace IASWorkshopLegacy
         {
             base.OnStartup(e);
 
-            bool success;
+            string error = null;
 
-            // Steam will look for the App ID during initialization
-            Environment.SetEnvironmentVariable("SteamAppId", AppId.ToString());
-            Environment.SetEnvironmentVariable("SteamGameId", AppId.ToString());
-
+            // Read the game's App ID from the included text file
             try
             {
-                success = SteamAPI.Init();
+                foreach (string line in File.ReadAllLines(AppIdFile))
+                {
+                    // Split on whitespace (the default for Split) and take the first element (Split never returns an empty array)
+                    string first = line.Split()[0];
+
+                    if (uint.TryParse(first, out uint appId))
+                    {
+                        AppId = new AppId_t(appId);
+                        // Steam will look for the App ID in env vars during initialization
+                        Environment.SetEnvironmentVariable("SteamAppId", appId.ToString());
+                        Environment.SetEnvironmentVariable("SteamGameId", appId.ToString());
+                        break;
+                    }
+                }
+
+                // Did we find a number?
+                if (AppId.m_AppId == 0)
+                {
+                    error = FileError;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                success = false;
+                error = FileError;
             }
 
-            if (success)
+            // Initialize the Steam API
+            if (error == null)
             {
-                ThreadPool.QueueUserWorkItem(RunCallbacks);
+                try
+                {
+                    if (SteamAPI.Init())
+                    {
+                        ThreadPool.QueueUserWorkItem(RunCallbacks);
+                    }
+                    else
+                    {
+                        error = ConnectionError;
+                    }
+                }
+                catch
+                {
+                    error = ConnectionError;
+                }
             }
-            else
+
+            // If there was an error, show a message and quit
+            if (error != null)
             {
-                MessageBox.Show("Could not connect to Steam. Make sure Steam is running and try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 Shutdown();
             }
         }

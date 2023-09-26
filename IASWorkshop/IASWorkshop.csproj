@@ -16,4 +16,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Facepunch.Steamworks\Facepunch.Steamworks\Facepunch.Steamworks.Win64.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="AppID.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

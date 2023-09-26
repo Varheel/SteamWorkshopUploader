@@ -1,0 +1,7 @@
+﻿Enter the App ID of a Steam game that has Workshop support, then run the program.
+The first number in this file will be used.
+Lines that don't start with a number are ignored.
+Any text after the number (separated by whitespace) is also ignored.
+
+2477140		Twilight Town: A Cyberpunk FPS
+1960590		I Am Sakuya: Touhou FPS Game
