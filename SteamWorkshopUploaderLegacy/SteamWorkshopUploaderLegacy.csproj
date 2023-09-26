@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C684E1D1-C8E7-4A61-B091-B8E4D2E70834}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IASWorkshopLegacy</RootNamespace>
-    <AssemblyName>IASWorkshopLegacy</AssemblyName>
+    <RootNamespace>SteamWorkshopUploaderLegacy</RootNamespace>
+    <AssemblyName>SteamWorkshopUploaderLegacy</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
