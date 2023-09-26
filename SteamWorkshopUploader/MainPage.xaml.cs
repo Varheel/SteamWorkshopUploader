@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Threading.Tasks;
 
-namespace IASWorkshop
+namespace SteamWorkshopUploader
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

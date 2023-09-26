@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
-namespace IASWorkshop
+namespace SteamWorkshopUploader
 {
     /// <summary>
     /// Interaction logic for Publish.xaml

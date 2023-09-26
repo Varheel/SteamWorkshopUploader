@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace IASWorkshopLegacy
+namespace SteamWorkshopUploader
 {
     /// <summary>
     /// Implements IValueConverter for XAML binding purposes.

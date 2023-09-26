@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
-namespace IASWorkshopLegacy
+namespace SteamWorkshopUploaderLegacy
 {
     /// <summary>
     /// Interaction logic for PublishPage.xaml

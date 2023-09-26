@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Windows;
 
-namespace IASWorkshopLegacy
+namespace SteamWorkshopUploaderLegacy
 {
     /// <summary>
     /// Interaction logic for App.xaml

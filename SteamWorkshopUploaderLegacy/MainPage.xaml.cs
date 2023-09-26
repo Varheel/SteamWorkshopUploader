@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace IASWorkshopLegacy
+namespace SteamWorkshopUploaderLegacy
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

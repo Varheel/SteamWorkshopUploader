@@ -1,6 +1,6 @@
-﻿<Application x:Class="IASWorkshopLegacy.App"
+﻿<Application x:Class="SteamWorkshopUploaderLegacy.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:IASWorkshopLegacy"
+             xmlns:local="clr-namespace:SteamWorkshopUploaderLegacy"
              StartupUri="MainWindow.xaml">
 </Application>

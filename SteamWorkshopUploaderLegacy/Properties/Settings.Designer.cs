@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IASWorkshopLegacy.Properties
+namespace SteamWorkshopUploaderLegacy.Properties
 {
 
 

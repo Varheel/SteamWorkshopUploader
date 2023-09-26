@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IASWorkshop
+namespace SteamWorkshopUploader
 {
     internal class SubmissionProgress : IProgress<float>
     {

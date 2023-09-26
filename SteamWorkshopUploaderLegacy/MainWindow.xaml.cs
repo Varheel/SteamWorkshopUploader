@@ -1,6 +1,6 @@
 ﻿using System.Windows.Navigation;
 
-namespace IASWorkshop
+namespace SteamWorkshopUploaderLegacy
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

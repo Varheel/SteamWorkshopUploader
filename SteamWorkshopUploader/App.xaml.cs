@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 
-namespace IASWorkshop
+namespace SteamWorkshopUploader
 {
     /// <summary>
     /// Interaction logic for App.xaml

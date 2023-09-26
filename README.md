@@ -1,5 +1,5 @@
-# IASWorkshop
-A tool that uploads Steam Workshop items for the game, "I Am Sakuya"
+# SteamWorkshopUploader
+This is a tool that uploads mods for GZDoom games to the Steam Workshop. With a few changes, it could be used for other games too.
 
 The main version targets .NET 5 and uses [Facepunch.Steamworks](https://github.com/Facepunch/Facepunch.Steamworks).
 
