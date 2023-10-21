@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteamWorkshopUploaderLegacy"
         mc:Ignorable="d"
         Title="Steam Workshop Uploader" Height="450" Width="800" ResizeMode="CanMinimize"
-        Source="MainPage.xaml" ShowsNavigationUI="False">
+        Source="StartPage.xaml" ShowsNavigationUI="False">
     <Window.Resources>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
             <Setter Property="Margin" Value="0 20 0 0"/>
