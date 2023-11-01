@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace IASWorkshopLegacy
+namespace SWUploader
 {
     /// <summary>
     /// Implements IValueConverter for XAML binding purposes.

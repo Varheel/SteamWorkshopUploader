@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using System.Windows;
 
-namespace IASWorkshopLegacy
+namespace SWUploader
 {
     /// <summary>
     /// Interaction logic for App.xaml
