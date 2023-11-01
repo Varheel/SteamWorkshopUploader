@@ -11,9 +11,9 @@ namespace IASWorkshopLegacy
     public partial class App : Application
     {
         /// <summary>
-        /// The AppId for I Am Sakuya
+        /// The AppId for Twilight Town FPS
         /// </summary>
-        public static readonly AppId_t AppId = new AppId_t(1960590);
+        public static readonly AppId_t AppId = new AppId_t(2477140);
 
         private static bool _running = true;
 
