@@ -1,0 +1,53 @@
+﻿<Page x:Class="SWUploaderNet50.PublishPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SWUploaderNet50"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Publish">
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="20 0 10 0">
+                <Label>Title</Label>
+                <TextBox x:Name="TitleText" Height="20"/>
+                <Label>Description</Label>
+                <TextBox x:Name="DescriptionText" Height="240" AcceptsReturn="True"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 20 0">
+                <Label>Content (the folder that contains your WAD/mod file)</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Height="20" Margin="0 0 10 0"
+                        x:Name="ContentFolder" IsReadOnly="True"/>
+                    <Button Grid.Column="1" Width="90" Margin="0 0 -10 0"
+                        Click="ChooseContent_Click" Content="Choose folder..."/>
+                </Grid>
+                <Label>Preview Image</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Height="20" Margin="0 0 10 0"
+                        x:Name="PreviewImagePath" IsReadOnly="True"/>
+                    <Button Grid.Column="1" Width="90" Margin="0 0 -10 0"
+                        Click="ChooseImage_Click" Content="Choose file..."/>
+                </Grid>
+                <Image x:Name="PreviewImage" Margin="0 30 0 0" Width="360" Height="190"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20">
+            <Button x:Name="SubmitButton" Click="Submit_Click" Content="Submit"/>
+            <Button Click="Cancel_Click" Content="Cancel"/>
+        </StackPanel>
+    </StackPanel>
+</Page>
