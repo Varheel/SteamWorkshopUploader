@@ -1,11 +1,8 @@
-﻿using Microsoft.Win32;
-using Steamworks;
-using System;
+﻿using Steamworks;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
 namespace SWUploader
@@ -15,8 +12,6 @@ namespace SWUploader
     /// </summary>
     public partial class PublishPage : Page
     {
-        private const uint MaxImageSize = 1024 * 1024;
-        private static readonly string[] ImageTypes = new[] { ".jpg", ".png", ".gif" };
         private static readonly string[] ContentTypes = new[] { ".wad", ".7z", ".zip", ".pk3", ".pk7", ".pkz" };
         private const string ContentTypesText = "WAD, .7z, .zip, .pk3, pk7, or .pkz";
 
@@ -53,7 +48,6 @@ namespace SWUploader
             SubmitButton.IsEnabled = !(
                 string.IsNullOrEmpty(TitleText.Text) ||
                 string.IsNullOrEmpty(DescriptionText.Text) ||
-                string.IsNullOrEmpty(PreviewImagePath.Text) ||
                 string.IsNullOrEmpty(ContentFolder.Text));
         }
 
@@ -112,48 +106,6 @@ namespace SWUploader
         }
 
         /// <summary>
-        /// Shows a file picker for the Preview Image.
-        /// Updates the GUI, displaying the selected file path and the image itself.
-        /// </summary>
-        private void ChooseImage_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new OpenFileDialog()
-            {
-                CheckFileExists = true,
-                CheckPathExists = true,
-                Filter = $"Image Files|*{string.Join(";*", ImageTypes)}"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                string path = dialog.FileName;
-                bool ok;
-
-                try
-                {
-                    var file = new FileInfo(path);
-                    ok = file.Exists && file.Length > 0 && file.Length < MaxImageSize && ImageTypes.Contains(file.Extension.ToLower());
-                }
-                catch (Exception)
-                {
-                    ok = false;
-                }
-
-                if (ok)
-                {
-                    PreviewImagePath.Text = path;
-                    PreviewImage.Source = new BitmapImage(new Uri(path));
-                }
-                else
-                {
-                    MessageBox.Show(_window, "Please select a valid JPG, PNG, or GIF file that is smaller than 1MB.");
-                }
-            }
-
-            UpdateUi();
-        }
-
-        /// <summary>
         /// "Submit" button handler. Submits a Steam Workshop item.
         /// </summary>
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -185,7 +137,6 @@ namespace SWUploader
             SteamUGC.SetItemVisibility(handle, ERemoteStoragePublishedFileVisibility.k_ERemoteStoragePublishedFileVisibilityPublic);
             SteamUGC.SetItemTitle(handle, TitleText.Text);
             SteamUGC.SetItemDescription(handle, DescriptionText.Text);
-            SteamUGC.SetItemPreview(handle, PreviewImagePath.Text);
             SteamUGC.SetItemContent(handle, ContentFolder.Text);
 
             var call = SteamUGC.SubmitItemUpdate(handle, null);
